@@ -7,14 +7,16 @@ if __name__ == "__main__":
 
     # original
     labels = ['Auren', 'Witches', 'Alchemists', 'Darklings', 'Halflings', 'Cultists', 'Engineers',
-              'Dwarves', 'Mermaids', 'Swarmlings', 'Chaos Magicians', 'Giants', 'Fakirs', 'Nomads']
+              'Dwarves', 'Mermaids', 'Swarmlings', 'Chaos Magicians', 'Giants', 'Fakirs', 'Nomads', 'Yetis', 'Ice Maidens', 'Acolytes', 'Dragonlords', 'Shapeshifters', 'Riverwalkers']
     bonus = ['+Priest', '+3 Power | + Worker', '+6c', '+3 Power | +1 Ship', 'Spade Action | + 2c', 'Cult Action | + 4c',
              'Dwelling VP | + 2c', 'Trading Post VP | + Worker', 'Sanctuary / Stronghold VP | +2 Workers']
     round = ['Trading Post VP -> Air Spade', 'Dwelling VP -> Water Priest', 'Trading Post VP -> Water Spade', 'Key VP -> Earth Spade',
              'Sanct/Strong VP -> Air Worker', 'Spade VP -> Earth Coins', 'Dewlling VP -> Fire Power', 'Sanct/Strong VP -> Fire Worker']
 
+    endvalues = ['Largest Distance', 'Temple and Stronghold', 'Suburbs', 'Clusters']
+
     # the cards and sides to choose from
-    cards = range(0, 7)
+    cards = range(0, 10)
     side = range(0, 2)
 
     # choose everything
@@ -23,6 +25,7 @@ if __name__ == "__main__":
     start = np.random.choice(n, 1)[0]
     bonuses = np.random.choice(bonus, n + 3, replace=False)
     rounds = np.random.choice(round, 6, replace=False)
+    end = np.random.choice(endvalues, 1)[0]
 
     boem = choices * 2 + sides
     chosen = [labels[i] for i in boem]
@@ -41,3 +44,6 @@ if __name__ == "__main__":
     print('\nRounds (%d / %d)' % (len(rounds), len(round)))
     for i, v in enumerate(rounds):
         print('%d - %s' % (i + 1, v))
+
+    print('\nEndtile')
+    print(end)
